@@ -1,0 +1,63 @@
+NOTE::  Remove tild files from project before commit
+find . -type f -name '*~' -exec rm -f '{}' \;
+
+DONT WANT TO REMOVE THEN: Just add *~ to .gitignore at the root of you repo.
+
+LINK:: https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-config
+
+=========================================================================================
+INSTALLATION
+=========================================================================================
+sudo apt-get install git
+
+//To check git is installed on your PC type following command
+
+git --version
+
+=========================================================================================
+STEPS FOR PUSH TO GIT
+=========================================================================================
+
+git clone http://git.imobdev.com/web-group/ljbazaar.git /var/www/html/lj_git/
+git checkout developer
+chmod -R 0777 ./*
+nano .gitignore  //goto comment section
+git config --global user.name "Pragnesh Rupapara"
+git config --global user.email "pragnesh.rupapara@imobdev.com"
+git config --global push.default matching
+git config merge.conflictstyle diff3
+git config merge.pin.driver true
+git add admin/
+git add folder/
+git add file.php
+git reset HEAD *.scss 			//escape scss file to being upload to git.
+git commit -am "Fresh Copy"
+git checkout developer
+git push origin developer
+
+=========================================================================================
+.gitignore file contains following things //comment section start
+=========================================================================================
+*~
+/.project
+cgi-bin/
+upload/
+.sass-cache/
+
+after write press ctrl+o then press enter then press ctrl+x
+
+
+===============================================================
+NOTES
+==================================================================
+If you have changed any files in (IE. admin folder) then you have to add those files to git again by following command:
+git add admin/
+
+for resolve git conflict and merge code
+--------------------------------------------
+git config merge.conflictstyle diff3
+
+================================================================
+Get files from server
+====================================================================
+git pull origin developer
