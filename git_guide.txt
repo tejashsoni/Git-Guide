@@ -21,22 +21,23 @@ STEPS FOR PUSH TO GIT
 git clone http://git.imobdev.com/web-group/ljbazaar.git /var/www/html/lj_git/
 git checkout developer
 chmod -R 0777 ./*
-nano .gitignore  //goto comment section
+nano .gitignore  //goto .gitignore section
 git config --global user.name "Pragnesh Rupapara"
 git config --global user.email "pragnesh.rupapara@imobdev.com"
 git config --global push.default matching
 git config merge.conflictstyle diff3
 git config merge.pin.driver true
-git add admin/
-git add folder/
-git add file.php
+
+git add folder/					// if you want to add only folder
+git add file.php				// if you want to add only file
+git add --all :/				//if you want to add all files
 git reset HEAD *.scss 			//escape scss file to being upload to git.
 git commit -am "Fresh Copy"
 git checkout developer
 git push origin developer
 
 =========================================================================================
-.gitignore file contains following things //comment section start
+.gitignore
 =========================================================================================
 *~
 /.project
@@ -44,18 +45,11 @@ cgi-bin/
 upload/
 .sass-cache/
 
-after write press ctrl+o then press enter then press ctrl+x
-
-
 ===============================================================
 NOTES
 ==================================================================
 If you have changed any files in (IE. admin folder) then you have to add those files to git again by following command:
 git add admin/
-
-for resolve git conflict and merge code
---------------------------------------------
-git config merge.conflictstyle diff3
 
 ================================================================
 Get files from server
